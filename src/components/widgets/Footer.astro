@@ -15,8 +15,13 @@ interface Links {
   links: Array<Link>;
 }
 
+interface FooterLinks {
+  links: Array<Link>;
+}
+
 export interface Props {
-  links: Array<Links>;
+  //links: Array<Links>;
+  links: Array<Link>;
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
   footNote?: string;
@@ -46,7 +51,8 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           }
         </div>
       </div>
-      {
+      </div>
+      <!-- {
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
             <div class="dark:text-gray-300 font-medium mb-2">{title}</div>
@@ -67,8 +73,24 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             )}
           </div>
         ))
-      }
-    </div>
+      } -->
+      <div class="grid w-full grid-cols-2 gap-4 md:grid-cols-4 ">
+      {
+links.map(({ text, href }) => (
+ 
+
+                     <a
+                       class="text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+                       href={href}
+                       aria-label={text}
+                     >
+                       <Fragment set:html={text} />
+                     </a>
+                   
+                 ))
+
+      
+    }</div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       {
         socialLinks?.length ? (
