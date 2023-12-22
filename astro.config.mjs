@@ -51,6 +51,9 @@ export default defineConfig({
           'business-contact',
           'database',
         ],
+        'ion': [
+          'fast-food-outline',
+        ]
       },
     }),
 
